@@ -1,4 +1,4 @@
-function hello(name: string): string {
+export function hello(name: string): string {
   return 'Hello ' + name;
 }
-module.exports = { hello };
+// module.exports = { hello };

@@ -1,3 +1,4 @@
-const h = require('./hellonode.ts');
+// const h = require('./hellonode');
+import { hello } from './hellonode.js';
 
-console.log(h.hello());
+console.log(hello('Node'));
