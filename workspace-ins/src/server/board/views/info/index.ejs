@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
+    <title>정보 공유 - 멋사컴</title>
 
     <!-- 기본 meta 태그 -->
     <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
@@ -12,10 +12,10 @@
     <meta name="author" content="FESP 2기" />
 
     <!-- Open Graph meta 태그 (소셜 미디어용) -->
-    <meta property="og:title" content="멋사컴에 오신걸 환영합니다." />
+    <meta property="og:title" content="정보 공유 게시판" />
     <meta property="og:description" content="유용한 정보를 나누고 공유하세요." />
     <meta property="og:image" content="/images/fesp.webp" />
-    <meta property="og:url" content="https://community.fesp.shop" />
+    <meta property="og:url" content="https://community.fesp.shop/info" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="멋사컴" />
 
@@ -24,6 +24,15 @@
   </head>
   <body>
     <div id="root">
+
+      <!-- 전체 화면 로딩중
+      <div class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-10">
+        <div class="flex flex-col items-center">
+          <h3 class="mb-4 text-lg font-semibold">잠시만 기다려주세요.</h3>
+          <RingLoader color="#F97316" />
+        </div>
+      </div>
+      -->
 
       <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
 
@@ -82,32 +91,78 @@
           </nav>
         </header>
 
-        <main class="container mx-auto mt-10 p-4 transition-color">
-          <section class="text-center">
-            <h1 class="text-4xl font-bold mb-4">멋사컴에 오신 것을 환영합니다!</h1>
-            <p class="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>
-            <a href="/" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">커뮤니티 참여하기</a>
-          </section>
+        <main class="min-w-80 p-10">
+          <div class="text-center py-4">
+            <h2 class="pb-4 text-2xl font-bold text-gray-700 dark:text-gray-200">정보 공유</h2>
+          </div>
+          <div class="flex justify-end mr-4">
+            
+            <form action="#">
+              <input
+                class="dark:bg-gray-600 bg-gray-100 p-1 rounded"
+                type="text"
+                name="keyword"
+              />
+              <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">검색</button>
+            </form>
+
+            <a href="/info/new" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">글작성</a>
+          </div>
+          <section class="pt-10">
+            <table class="border-collapse w-full table-fixed">
+              <colgroup>
+                <col class="w-[10%] sm:w-[10%]" />
+                <col class="w-[60%] sm:w-[30%]" />
+                <col class="w-[30%] sm:w-[15%]" />
+                <col class="w-0 sm:w-[10%]" />
+                <col class="w-0 sm:w-[10%]" />
+                <col class="w-0 sm:w-[25%]" />
+              </colgroup>
+              <thead>
+                <tr class="border-b border-solid border-gray-600">
+                  <th class="p-2 whitespace-nowrap font-semibold">번호</th>
+                  <th class="p-2 whitespace-nowrap font-semibold">제목</th>
+                  <th class="p-2 whitespace-nowrap font-semibold">글쓴이</th>
+                  <th class="p-2 whitespace-nowrap font-semibold hidden sm:table-cell">조회수</th>
+                  <th class="p-2 whitespace-nowrap font-semibold hidden sm:table-cell">댓글수</th>
+                  <th class="p-2 whitespace-nowrap font-semibold hidden sm:table-cell">작성일</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
+                  <td class="p-2 text-center">2</td>
+                  <td class="p-2 truncate indent-4"><a href="/info/2" class="cursor-pointer">안녕하세요.</a></td>
+                  <td class="p-2 text-center truncate">용쌤</td>
+                  <td class="p-2 text-center hidden sm:table-cell">29</td>
+                  <td class="p-2 text-center hidden sm:table-cell">2</td>
+                  <td class="p-2 truncate text-center hidden sm:table-cell">2024.07.05 13:39:23</td>
+                </tr>
+                <tr class="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
+                  <td class="p-2 text-center">1</td>
+                  <td class="p-2 truncate indent-4"><a href="/info/1" class="cursor-pointer">좋은 소식이 있습니다.</a></td>
+                  <td class="p-2 text-center truncate">제이지</td>
+                  <td class="p-2 text-center hidden sm:table-cell">22</td>
+                  <td class="p-2 text-center hidden sm:table-cell">5</td>
+                  <td class="p-2 truncate text-center hidden sm:table-cell">2024.07.03 17:59:13</td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
     
-          <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-4 text-center">주요 기능</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">정보 공유</h3>
-                <p class="mb-4">다양한 정보와 지식을 공유하세요.</p>
-                <a href="/info" class="text-orange-500 hover:underline">바로가기</a>
-              </div>
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">자유 게시판</h3>
-                <p class="mb-4">자유롭게 이야기를 나누세요.</p>
-                <a href="/free" class="text-orange-500 hover:underline">바로가기</a>
-              </div>
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">질문 게시판</h3>
-                <p class="mb-4">궁금한 점을 질문하고 답변을 받아보세요.</p>
-                <a href="/qna" class="text-orange-500 hover:underline">바로가기</a>
-              </div>
+            <div>
+              <ul class="flex justify-center gap-3 m-4">
+                <li class="font-bold text-blue-700">
+                  <a href="/info?page=1">1</a>
+                </li>
+                <li>
+                  <a href="/info?page=2">2</a>
+                </li>
+              </ul>
             </div>
+
+
+
           </section>
         </main>
         

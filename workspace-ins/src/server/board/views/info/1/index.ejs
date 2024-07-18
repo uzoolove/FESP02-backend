@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
+    <title>좋은 소식이 있습니다. - 멋사컴</title>
 
     <!-- 기본 meta 태그 -->
     <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
@@ -12,11 +12,11 @@
     <meta name="author" content="FESP 2기" />
 
     <!-- Open Graph meta 태그 (소셜 미디어용) -->
-    <meta property="og:title" content="멋사컴에 오신걸 환영합니다." />
-    <meta property="og:description" content="유용한 정보를 나누고 공유하세요." />
+    <meta property="og:title" content="좋은 소식이 있습니다." />
+    <meta property="og:description" content="좋은 소식을 가지고 왔습니다. 오늘 드디어..." />
     <meta property="og:image" content="/images/fesp.webp" />
-    <meta property="og:url" content="https://community.fesp.shop" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://community.fesp.shop/info/1" />
+    <meta property="og:type" content="article" />
     <meta property="og:site_name" content="멋사컴" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -82,33 +82,96 @@
           </nav>
         </header>
 
-        <main class="container mx-auto mt-10 p-4 transition-color">
-          <section class="text-center">
-            <h1 class="text-4xl font-bold mb-4">멋사컴에 오신 것을 환영합니다!</h1>
-            <p class="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>
-            <a href="/" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">커뮤니티 참여하기</a>
+        <main class="container mx-auto mt-4 px-4">
+
+          <section class="mb-8 p-4">
+            <form action="/info">
+            <div class="font-semibold text-xl">제목 : 좋은 소식이 있습니다.</div>
+              <div class="text-right text-gray-400">작성자 : 제이지</div>
+              <div class="mb-4">
+                <div>
+                  <pre class="font-roboto w-full p-2 whitespace-pre-wrap">좋은 소식을 가지고 왔습니다.<br />오늘 드디어 최종 면접을 합니다.<br />많이 응원해 주세요^^</pre>
+                </div>
+                <hr/>
+              </div>
+              <div class="flex justify-end my-4">
+                <a href="/info" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">목록</a>
+                <a href="/info/1/edit" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</a>
+                <button type="submit" class="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+              </div>
+            </form>
           </section>
-    
-          <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-4 text-center">주요 기능</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">정보 공유</h3>
-                <p class="mb-4">다양한 정보와 지식을 공유하세요.</p>
-                <a href="/info" class="text-orange-500 hover:underline">바로가기</a>
+
+          <!-- 부분 화면 로딩중 -->
+          <!--
+          <div class="flex flex-col items-center">
+            <h3 class="mb-4 text-lg font-semibold">잠시만 기다려주세요.</h3>
+            <span>로딩중...</span>
+          </div>
+          -->
+          
+          <section class="mb-8">
+            <h4 class="mt-8 mb-4 ml-2">댓글 2개</h4>
+
+            <div class="shadow-md rounded-lg p-4 mb-4">
+              <div class="flex justify-between items-center mb-2">
+                <img
+                  class="w-8 mr-2 rounded-full"
+                  src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
+                  alt="어피치 프로필 이미지"
+                />
+                <a href="" class="text-orange-400">어피치</a>
+                <time class="ml-auto text-gray-500" dateTime="2024.07.02 14:11:22">2024.07.02 14:11:22</time>
               </div>
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">자유 게시판</h3>
-                <p class="mb-4">자유롭게 이야기를 나누세요.</p>
-                <a href="/free" class="text-orange-500 hover:underline">바로가기</a>
-              </div>
-              <div class="bg-white p-6 rounded shadow dark:bg-gray-800">
-                <h3 class="text-xl font-bold mb-2">질문 게시판</h3>
-                <p class="mb-4">궁금한 점을 질문하고 답변을 받아보세요.</p>
-                <a href="/qna" class="text-orange-500 hover:underline">바로가기</a>
-              </div>
+              <div class="flex justify-between items-center mb-2">
+                <form action="#">
+                  <pre class="whitespace-pre-wrap text-sm">화이팅!</pre>
+                  <button type="submit" class="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+                </form>
+              </div>  
             </div>
+
+            <div class="shadow-md rounded-lg p-4 mb-4">
+              <div class="flex justify-between items-center mb-2">
+                <img
+                  class="w-8 mr-2 rounded-full"
+                  src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
+                  alt="무지 프로필 이미지"
+                />
+                <a href="" class="text-orange-400">무지</a>
+                <time class="ml-auto text-gray-500" dateTime="2024.07.07 12:34:56">2024.07.07 12:34:56</time>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <form action="#">
+                  <pre class="whitespace-pre-wrap text-sm">축하해요~~~</pre>
+                  <button type="submit" class="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+                </form>
+              </div>  
+            </div>
+
+            <div class="p-4 border border-gray-200 rounded-lg">
+              <h4 class="mb-4">새로운 댓글을 추가하세요.</h4>
+              <form action="#">
+                <div class="mb-4">
+                  <textarea
+                    rows="3"
+                    cols="40"
+                    class="block p-2 w-full text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="내용을 입력하세요."
+                    name="comment"></textarea>
+        
+                  <p class="ml-2 mt-1 text-sm text-red-500">
+                    내용은 필수입니다.
+                  </p>
+                  
+                </div>
+                <button type="submit" class="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
+              </form>
+            </div>
+      
           </section>
+
+
         </main>
         
         <footer class="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
