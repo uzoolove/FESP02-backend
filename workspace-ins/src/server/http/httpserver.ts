@@ -23,7 +23,7 @@ import path from 'node:path';
 const server = net.createServer((req, res) => {
   if(req.url === '/'){
     req.url = '/index.html';
-  }else if(req.url === '/now'){
+  }else if(req.url === '/now.html'){
     res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
     res.end(`<h1>${new Date()}</h1>`);
   }else{
@@ -39,11 +39,11 @@ const server = net.createServer((req, res) => {
         }else{
           res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
         }      
-        res.end(data);
+        const result = data.toString().replace('<%=now%>', Date());
+        res.end(result);
       }
     });
-  }
-  
+  }  
 });
 const PORT = 8088;
 server.listen(PORT, () => {
