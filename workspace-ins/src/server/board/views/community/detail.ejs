@@ -111,43 +111,30 @@
           -->
           
           <section class="mb-8">
-            <h4 class="mt-8 mb-4 ml-2">댓글 2개</h4>
+            <h4 class="mt-8 mb-4 ml-2">댓글 <%=item.replies?.length || 0 %>개</h4>
 
-            <div class="shadow-md rounded-lg p-4 mb-4">
-              <div class="flex justify-between items-center mb-2">
-                <img
-                  class="w-8 mr-2 rounded-full"
-                  src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
-                  alt="어피치 프로필 이미지"
-                />
-                <a href="" class="text-orange-400">어피치</a>
-                <time class="ml-auto text-gray-500" dateTime="2024.07.02 14:11:22">2024.07.02 14:11:22</time>
-              </div>
-              <div class="flex justify-between items-center mb-2">
-                <form action="#">
-                  <pre class="whitespace-pre-wrap text-sm">화이팅!</pre>
-                  <button type="submit" class="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
-                </form>
-              </div>  
-            </div>
+            <% item.replies?.forEach( reply => { %>
 
-            <div class="shadow-md rounded-lg p-4 mb-4">
-              <div class="flex justify-between items-center mb-2">
-                <img
-                  class="w-8 mr-2 rounded-full"
-                  src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
-                  alt="무지 프로필 이미지"
-                />
-                <a href="" class="text-orange-400">무지</a>
-                <time class="ml-auto text-gray-500" dateTime="2024.07.07 12:34:56">2024.07.07 12:34:56</time>
+              <div class="shadow-md rounded-lg p-4 mb-4">
+                <div class="flex justify-between items-center mb-2">
+                  <img
+                    class="w-8 mr-2 rounded-full"
+                    src="https://api.fesp.shop<%=reply.user.profile%>"
+                    alt="프로필 이미지"
+                  />
+                  <a href="" class="text-orange-400"><%=reply.user.name%></a>
+                  <time class="ml-auto text-gray-500" dateTime="<%=reply.updatedAt%>"><%=reply.updatedAt%></time>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                  <form action="#">
+                    <pre class="whitespace-pre-wrap text-sm"><%=reply.content%></pre>
+                    <button type="submit" class="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+                  </form>
+                </div>  
               </div>
-              <div class="flex justify-between items-center mb-2">
-                <form action="#">
-                  <pre class="whitespace-pre-wrap text-sm">축하해요~~~</pre>
-                  <button type="submit" class="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
-                </form>
-              </div>  
-            </div>
+
+            <% }); %>
+
 
             <div class="p-4 border border-gray-200 rounded-lg">
               <h4 class="mb-4">새로운 댓글을 추가하세요.</h4>
