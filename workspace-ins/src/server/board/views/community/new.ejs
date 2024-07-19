@@ -87,7 +87,7 @@
             <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 등록</h2>
           </div>
           <section class="mb-8 p-4">
-            <form action="/info/1">
+            <form action="/<%=type%>" method="post">
               <div class="my-4">
                 <label class="block text-lg content-center" for="title">제목</label>
                 <input
@@ -113,7 +113,7 @@
               <hr />
               <div class="flex justify-end my-6">
                 <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">등록</button>
-                <a href="/info" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
+                <a href="/<%=type%>" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
               </div>
             </form>
           </section>

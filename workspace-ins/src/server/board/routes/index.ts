@@ -17,7 +17,8 @@ router.get('/:type', async function(req, res, next) {
 
 // 게시물 등록 화면
 router.get('/:type/new', async function(req, res, next) {
-  res.render('community/new');
+  const type = req.params.type;
+  res.render('community/new', { type });
 });
 
 // 게시물 상세 조회
@@ -31,8 +32,9 @@ router.get('/:type/:_id', async function(req, res, next) {
 // 게시물 등록
 router.post('/:type', async function(req, res, next) {
   const type = req.params.type;
-  const list = await model.post.list(type);
-  res.render('community/list', { list });
+  req.body.type = type;
+  await model.post.add(req.body);
+  res.redirect(`/${type}`);
 });
 
 // 게시물 수정 화면
