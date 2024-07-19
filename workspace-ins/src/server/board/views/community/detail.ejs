@@ -119,10 +119,10 @@
                 <div class="flex justify-between items-center mb-2">
                   <img
                     class="w-8 mr-2 rounded-full"
-                    src="https://api.fesp.shop<%=reply.user.profile%>"
+                    src="<%=reply.user ? 'https://api.fesp.shop'+reply.user.profile : 'https://cdn.discordapp.com/attachments/1254708375187361817/1263412653641044059/image.png?ex=669accf9&is=66997b79&hm=3cf0253be81c72a3b7325ae9950da21d81bf6fffd7bb279cc4e10c61c65106c1&'%>"
                     alt="프로필 이미지"
                   />
-                  <a href="" class="text-orange-400"><%=reply.user.name%></a>
+                  <a href="" class="text-orange-400"><%=reply.user?.name || '익명'%></a>
                   <time class="ml-auto text-gray-500" dateTime="<%=reply.updatedAt%>"><%=reply.updatedAt%></time>
                 </div>
                 <div class="flex justify-between items-center mb-2">
@@ -138,14 +138,14 @@
 
             <div class="p-4 border border-gray-200 rounded-lg">
               <h4 class="mb-4">새로운 댓글을 추가하세요.</h4>
-              <form action="#">
+              <form action="/<%=item.type%>/<%=item._id%>/replies" method="post">
                 <div class="mb-4">
                   <textarea
                     rows="3"
                     cols="40"
                     class="block p-2 w-full text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                     placeholder="내용을 입력하세요."
-                    name="comment"></textarea>
+                    name="content"></textarea>
         
                   <p class="ml-2 mt-1 text-sm text-red-500">
                     내용은 필수입니다.

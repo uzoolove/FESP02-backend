@@ -28,7 +28,7 @@ router.get('/:type/:_id', async function(req, res, next) {
   const _id = req.params._id;
   const item = await model.post.detail(Number(_id));
   if(!item){
-    throw createHttpError(404, '게시글이 존재하지 않습니다.');
+    next(createHttpError(404, '게시글이 존재하지 않습니다.'));
   }
   res.render('community/detail', { item });
 });
@@ -60,6 +60,13 @@ router.post('/:type/:_id', async function(req, res, next) {
   const type = req.params.type;
   const list = await model.post.list(type);
   res.render('community/list', { list });
+});
+
+// 댓글 등록
+router.post('/:type/:_id/replies', async function(req, res, next) {
+  const { type, _id } = req.params;
+  await model.post.addComment(Number(_id), req.body);
+  res.redirect(`/${type}/${_id}`);
 });
 
 export default router;

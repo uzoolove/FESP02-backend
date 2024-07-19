@@ -18,6 +18,13 @@ interface Post {
   updatedAt: string;
 }
 
+interface PostComment {
+  _id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 interface Seq {
   _id: string;
   no: number;
@@ -51,7 +58,11 @@ const model = {
       return data;
     },
     async detail(_id: number){
-      const data = await db.post.findOne({_id});
+      const data = await db.post.findOneAndUpdate(
+        {_id}, 
+        {$inc: {views: 1}}, 
+        {returnDocument: 'after'}
+      );
       console.log(data);
       return data;
     },
@@ -71,6 +82,14 @@ const model = {
       const seq = await db.seq.findOneAndUpdate({_id: 'post'}, {$inc: {no: 1}});
       post._id = seq!.no;
       const data = await db.post.insertOne(post);
+      console.log(data);
+      return data;
+    },
+    async addComment(_id: number, comment: PostComment){
+      comment.createdAt = comment.updatedAt = moment().format('YYYY.MM.DD HH:mm:ss');
+      const seq = await db.seq.findOneAndUpdate({_id: 'reply'}, {$inc: {no: 1}});
+      comment._id = seq!.no;
+      const data = await db.post.updateOne({_id}, {$push: {replies: comment}});
       console.log(data);
       return data;
     }
