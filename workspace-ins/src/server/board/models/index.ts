@@ -1,3 +1,4 @@
+import moment from "moment";
 import { Collection, Db, MongoClient } from "mongodb";
 
 interface User {
@@ -65,6 +66,10 @@ const model = {
       return data;
     },
     async add(post: Post){
+      post.createdAt = post.updatedAt = moment().format('YYYY.MM.DD HH:mm:ss');
+      post.views = 1;
+      const seq = await db.seq.findOneAndUpdate({_id: 'post'}, {$inc: {no: 1}});
+      post._id = seq!.no;
       const data = await db.post.insertOne(post);
       console.log(data);
       return data;
