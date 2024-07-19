@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import model from '../models/index.js';
+import createHttpError from 'http-errors';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,6 +27,9 @@ router.get('/:type/:_id', async function(req, res, next) {
   const type = req.params.type;
   const _id = req.params._id;
   const item = await model.post.detail(Number(_id));
+  if(!item){
+    throw createHttpError(404, '게시글이 존재하지 않습니다.');
+  }
   res.render('community/detail', { item });
 });
 
