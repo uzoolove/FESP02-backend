@@ -12,7 +12,47 @@ router.get('/', function(req, res, next) {
 router.get('/:type', async function(req, res, next) {
   const type = req.params.type;
   const list = await model.post.list(type);
-  console.log(list);
+  res.render('community/list', { list });
+});
+
+// 게시물 등록 화면
+router.get('/:type/new', async function(req, res, next) {
+  res.render('community/new');
+});
+
+// 게시물 상세 조회
+router.get('/:type/:_id', async function(req, res, next) {
+  const type = req.params.type;
+  const _id = req.params._id;
+  const item = await model.post.detail(Number(_id));
+  res.render('community/detail', { item });
+});
+
+// 게시물 등록
+router.post('/:type', async function(req, res, next) {
+  const type = req.params.type;
+  const list = await model.post.list(type);
+  res.render('community/list', { list });
+});
+
+// 게시물 수정 화면
+router.get('/:type/:_id/edit', async function(req, res, next) {
+  const type = req.params.type;
+  const list = await model.post.list(type);
+  res.render('community/list', { list });
+});
+
+// 게시물 수정
+router.post('/:type/:_id/edit', async function(req, res, next) {
+  const type = req.params.type;
+  const list = await model.post.list(type);
+  res.render('community/list', { list });
+});
+
+// 게시물 삭제
+router.post('/:type/:_id', async function(req, res, next) {
+  const type = req.params.type;
+  const list = await model.post.list(type);
   res.render('community/list', { list });
 });
 

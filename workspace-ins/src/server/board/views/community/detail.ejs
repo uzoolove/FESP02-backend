@@ -86,17 +86,17 @@
 
           <section class="mb-8 p-4">
             <form action="/info">
-            <div class="font-semibold text-xl">제목 : 좋은 소식이 있습니다.</div>
-              <div class="text-right text-gray-400">작성자 : 제이지</div>
+            <div class="font-semibold text-xl">제목 : <%=item.title%></div>
+              <div class="text-right text-gray-400">작성자 : <%=item.user?.name%></div>
               <div class="mb-4">
                 <div>
-                  <pre class="font-roboto w-full p-2 whitespace-pre-wrap">좋은 소식을 가지고 왔습니다.<br />오늘 드디어 최종 면접을 합니다.<br />많이 응원해 주세요^^</pre>
+                  <pre class="font-roboto w-full p-2 whitespace-pre-wrap"><%=item.content%></pre>
                 </div>
                 <hr/>
               </div>
               <div class="flex justify-end my-4">
-                <a href="/info" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">목록</a>
-                <a href="/info/1/edit" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</a>
+                <a href="/<%=item.type%>" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">목록</a>
+                <a href="/<%=item.title%>/<%=item._id%>/edit" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</a>
                 <button type="submit" class="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
               </div>
             </form>

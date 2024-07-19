@@ -140,7 +140,7 @@
                     </td>
                     <td class="p-2 text-center truncate"><%= item.user?.name %></td>
                     <td class="p-2 text-center hidden sm:table-cell"><%= item.views %></td>
-                    <td class="p-2 text-center hidden sm:table-cell"><%= item.repliesCount %></td>
+                    <td class="p-2 text-center hidden sm:table-cell"><%= item.replies?.length || 0 %></td>
                     <td class="p-2 truncate text-center hidden sm:table-cell"><%= item.updatedAt %></td>
                   </tr>
                 <% }); %>
