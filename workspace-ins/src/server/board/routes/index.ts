@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
 });
 
 // 게시물 목록 조회
-router.get('/:type', function(req, res, next) {
+router.get('/:type', async function(req, res, next) {
   const type = req.params.type;
-  const list = model.post.list();
+  const list = await model.post.list(type);
+  console.log(list);
   res.render('community/list', { list });
 });
 
